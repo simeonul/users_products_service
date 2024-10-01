@@ -1,0 +1,33 @@
+server:
+  port: 8080
+
+management:
+  security:
+    jwt:
+      key: "SSBob3BlIHlvdSBsb3ZlIHRoaXMgYXBwbGljYXRpb24gOik="
+
+spring:
+  application:
+    name: food-safeguard
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/food_safeguard
+    username: postgres
+    password: postgres
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+clients:
+  food_facts:
+    url: https://world.openfoodfacts.org/api/v0
+    product_search_fields:
+      - product_name
+      - brands
+      - ingredients
+      - ingredients_tags
+      - status
